@@ -19,9 +19,11 @@ export default function ImportantLearningSection() {
 
   const effectiveCourses = useMemo(
     () =>
-      IMPORTANT_COURSES.map((c) =>
-        c.id === '1' && commitmentDone ? { ...c, status: 'prereq-met' as const } : c,
-      ),
+      IMPORTANT_COURSES
+        .filter((c) => !(c.id === 'camket' && commitmentDone))
+        .map((c) =>
+          c.id === '1' && commitmentDone ? { ...c, status: 'prereq-met' as const } : c,
+        ),
     [commitmentDone],
   );
 

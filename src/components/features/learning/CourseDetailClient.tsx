@@ -41,10 +41,12 @@ export default function CourseDetailClient({
     return init;
   });
 
-  // In After mode, dynamically derive prereq status from Zustand state
-  const effectivePrereqStatus = isAfter
-    ? commitmentDone ? 'met' : 'unmet'
-    : detail.prereqStatus;
+  // commitmentDone overrides prereq status in both modes
+  const effectivePrereqStatus = commitmentDone
+    ? 'met'
+    : isAfter
+      ? 'unmet'
+      : detail.prereqStatus;
   const prereqUnmet = effectivePrereqStatus === 'unmet';
 
   useEffect(() => {
