@@ -7,8 +7,11 @@ import ModeToggle from '@/components/app/ModeToggle';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
-  title: 'Trang chủ - SAP SuccessFactors',
-  description: 'Trang chủ - SAP SuccessFactors',
+  title: {
+    template: '%s - SAP SuccessFactors',
+    default: 'SAP SuccessFactors',
+  },
+  description: 'Hệ thống quản lý học tập MB Bank trên nền tảng SAP SuccessFactors.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

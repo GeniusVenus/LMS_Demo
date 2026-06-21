@@ -1,7 +1,13 @@
+import type { Metadata } from 'next';
 import ReminderCard from '@/components/features/home/ReminderCard';
 import GreetingBanner from '@/components/features/home/GreetingBanner';
 import UpdatesSection from '@/components/features/home/UpdatesSection';
 import CourseSectionAfterMode from '@/components/features/home/CourseSectionAfterMode';
+
+export const metadata: Metadata = {
+  title: 'Trang chủ',
+  description: 'Trang chủ hệ thống học tập SAP SuccessFactors.',
+};
 
 export default function HomePage() {
   return (

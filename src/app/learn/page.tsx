@@ -6,7 +6,8 @@ import RequiredLearningSection from '@/components/features/learning/RequiredLear
 import ImportantLearningSection from '@/components/features/learning/ImportantLearningSection';
 
 export const metadata: Metadata = {
-  title: 'Học tập - SAP SuccessFactors',
+  title: 'Hoạt động học tập',
+  description: 'Quản lý và theo dõi tiến trình học tập của bạn.',
 };
 
 export default function LearnPage() {

@@ -1,10 +1,15 @@
+import type { Metadata } from 'next';
 import { LESSON_CONTENT, GENERIC_LESSON } from '@/constants/lesson-content';
 
-export default async function ContentPlayerPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ lessonId?: string; title?: string }>;
-}) {
+type Props = { searchParams: Promise<{ lessonId?: string; title?: string }> };
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { title } = await searchParams;
+  const lessonTitle = title ? decodeURIComponent(title) : 'Bài học';
+  return { title: lessonTitle };
+}
+
+export default async function ContentPlayerPage({ searchParams }: Props) {
   const { lessonId, title } = await searchParams;
   const lessonTitle = title ? decodeURIComponent(title) : 'Bài học';
   const body = LESSON_CONTENT[lessonId ?? ''] ?? GENERIC_LESSON;
