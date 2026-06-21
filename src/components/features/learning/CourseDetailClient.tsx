@@ -96,6 +96,7 @@ export default function CourseDetailClient({
                   cursor: prereqUnmet ? 'default' : 'pointer',
                 }}
                 disabled={prereqUnmet}
+                onClick={() => !prereqUnmet && router.push(`/learn/courses/${course.id}/content`)}
               >
                 Bắt đầu
               </button>
